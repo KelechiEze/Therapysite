@@ -33,6 +33,26 @@ body {
     }
 }
 
+/* Define the spinning animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Change to -360deg for counterclockwise */
+    }
+}
+
+/* Create a keyframe for pause */
+@keyframes spinPause {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Keeps the final position */
+    }
+}
+
 .fade-in {
     opacity: 0; /* Start hidden */
     animation: fadeIn 0.6s forwards; /* Fade-in effect */
@@ -185,7 +205,7 @@ header {
 
 .hero p {
     font-size: 18px;
-    color: #7f8c8d;
+    color: #3D4442;
     margin: 20px 0;
     line-height: 1.6;
 }
@@ -304,7 +324,7 @@ header {
 /* Services Section */
 .services {
     padding: 60px 60px;
-    background-color: #f0f2f5; /* Light background for contrast */
+    background-color: #5B6361; /* Light background for contrast */
     text-align: center;
 }
 
@@ -316,7 +336,7 @@ header {
 
 /* Service Item */
 .service-item {
-    background-color: #ffffff; /* White background for boxes */
+    background-color: #e6f7ff; /* White background for boxes */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     padding: 20px; /* Inner padding */
@@ -324,6 +344,8 @@ header {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
     display: inline-block; /* Align items in a row */
     width: calc(33% - 40px); /* Three items per row with spacing */
+    animation: spin 1s ease forwards, spinPause 5s ease forwards; /* Pause for 5 seconds */
+    animation-delay: 0s, 1s; /* Start the pause after the first spin */
 }
 
 /* Hover effect for service items */

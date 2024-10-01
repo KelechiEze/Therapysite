@@ -60,3 +60,13 @@ function createStar() {
 
 // Start creating stars
 createStar();
+
+
+setInterval(() => {
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach(item => {
+        item.style.animation = 'none'; // Remove the animation
+        item.offsetHeight; // Trigger reflow
+        item.style.animation = ''; // Add the animation back
+    });
+}, 13000); // Adjust the interval to match the spin and pause time (1s spin + 5s pause)
