@@ -24,6 +24,15 @@ body {
     }
 }
 
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Start at original position */
+    }
+    50% {
+        transform: translateY(-20px); /* Bounce effect */
+    }
+}
+
 .fade-in {
     opacity: 0; /* Start hidden */
     animation: fadeIn 0.6s forwards; /* Fade-in effect */
@@ -236,11 +245,37 @@ header {
     padding: 60px 60px;
     background-color: #e4e7eb;
     text-align: center;
+    position: relative; /* Ensure stars are positioned relative to this section */
+    overflow: hidden; /* Hide any overflowing stars */
 }
 
 .customer-satisfaction h2 {
     font-size: 36px;
     margin-bottom: 40px;
+}
+
+.stars-container {
+    position: absolute; /* Positioning stars absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    pointer-events: none; /* Make sure stars don't interfere with mouse events */
+}
+
+.star {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: transparent; /* Make background transparent */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    animation: bounce 2s infinite; /* Animation for bouncing */
+    opacity: 1; /* Start fully visible */
+    transition: opacity 0.5s ease; /* Transition for opacity */
+}
+
+.star.hidden {
+    opacity: 0; /* Fully transparent */
 }
 
 .carousel {

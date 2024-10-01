@@ -21,3 +21,42 @@ function nextItem() {
 }
 
 setInterval(nextItem, 3000); // Change item every 3 seconds
+
+
+const starsContainer = document.querySelector('.stars-container');
+
+// Function to create a star
+function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    // Randomize the position of the star
+    const xPos = Math.random() * 100; // 0% to 100%
+    const yPos = Math.random() * 100; // 0% to 100%
+    star.style.left = `${xPos}vw`;
+    star.style.top = `${yPos}vh`;
+
+    // Randomize the color of the star
+    const colors = ['#FFD700', '#FF4500', '#32CD32', '#1E90FF', '#FF69B4'];
+    star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+    // Append the star to the stars container
+    starsContainer.appendChild(star);
+
+    // Smooth transition for disappearing and reappearing
+    setTimeout(() => {
+        star.classList.add('hidden'); // Fade out
+    }, 2000); // Wait 2 seconds before starting to fade out
+
+    star.addEventListener('transitionend', () => {
+        star.remove(); // Remove star after it fades out
+    });
+
+    // Call the function again after a timeout
+    setTimeout(() => {
+        createStar(); // Create a new star
+    }, 500); // Create a new star every 0.5 seconds
+}
+
+// Start creating stars
+createStar();
