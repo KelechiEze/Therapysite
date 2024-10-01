@@ -123,18 +123,38 @@ header {
 /* Hero Section */
 .hero {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #e4e7eb;
-    padding: 80px 60px; /* Adjusted padding for more breathing room */
+    flex-direction: column; /* Stack items on mobile */
+    justify-content: center;
+    align-items: center; /* Center content */
+    background-image: url('Images/image4.jpeg'); /* Add your image path */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    padding: 80px 20px; /* Reduced padding for full width */
     position: relative;
-    height: 100vh; /* Full viewport height */
+    width: 100%; /* Ensure full width */
+    color: white; /* Ensure text is readable on the background */
+}
+
+.ourheroes {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    max-width: 1200px; /* Limit the maximum width for larger screens */
+    margin: 0 auto; /* Center the container on the page */
+    padding: 40px; /* Add some padding around the container */
+    gap: 20px; /* Space between the hero content and image */
+    position: relative; /* Required for absolute positioning of overlay */
 }
 
 .hero-content {
-    max-width: 50%;
-    padding-right: 20px;
+    max-width: 500px; /* Set a max width for the content */
+    padding: 20px; /* Padding inside the hero content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    z-index: 2; /* Ensure it is above the overlay */
 }
+
 
 .hero-heading {
     background-color: #00A8C6; /* Matching background for text */
@@ -147,6 +167,11 @@ header {
     font-size: 36px;
     color: #fff; /* Text color to white */
     font-weight: bold;
+}
+
+.hero-heading h2,
+.hero p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a shadow to improve readability */
 }
 
 .hero p {
@@ -174,7 +199,7 @@ header {
 /* Hero Image */
 .hero-image {
     flex: 1;
-    max-width: 45%;
+    max-width: 500px;
 }
 
 .hero-image img {
@@ -186,6 +211,24 @@ header {
 
 .hero-image img:hover {
     transform: scale(1.05); /* Image zoom effect */
+    opacity: 0.8; /* Change to desired opacity on hover */
+}
+
+/* Optional: Overlay effect */
+.hero-image .image-overlay {
+    position: absolute; /* Position absolute to overlay the image */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+    border-radius: 10px; /* Match the border radius of the image */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for overlay */
+}
+
+.hero-image:hover .image-overlay {
+    opacity: 1; /* Show overlay on hover */
 }
 
 /* Customer Satisfaction Carousel */
@@ -222,6 +265,7 @@ header {
     color: #333;
 }
 
+/* Services Offered Section */
 /* Services Section */
 .services {
     padding: 60px 60px;
@@ -297,89 +341,31 @@ header {
     background-color: #007f96;
 }
 
-/* Responsive Styling */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 30px; /* Reduce padding on medium devices */
-    }
 
+/* Responsive for mobile */
+@media (max-width: 768px) {
     .hero {
-        padding: 60px 30px; /* Adjust padding for smaller devices */
+        flex-direction: column;
+        text-align: center;
     }
 
     .hero-content {
         max-width: 100%;
+        margin-bottom: 20px;
+        padding-right: 0;
     }
 
     .hero-image {
         max-width: 100%;
     }
 
-    .service-item {
-        width: calc(50% - 40px); /* Two items per row on medium screens */
-    }
-
-    .carousel-item {
-        min-width: 200px; /* Adjust carousel item size */
-    }
-}
-
-@media (max-width: 768px) {
-    .services, .customer-satisfaction, .contact-us {
+    .services {
         padding: 40px 20px; /* Adjust padding for smaller screens */
     }
 
     .service-item {
         width: calc(100% - 40px); /* Full width on small screens */
         margin: 10px; /* Reduce margin on smaller screens */
-    }
-
-    .carousel-item {
-        min-width: 150px; /* Adjust for smaller screens */
-    }
-
-    .services h2,
-    .customer-satisfaction h2,
-    .contact-us h2 {
-        font-size: 28px; /* Smaller heading size on mobile */
-    }
-
-    .service-item h3 {
-        font-size: 20px; /* Smaller service titles */
-    }
-
-    .service-item p {
-        font-size: 14px; /* Smaller text for descriptions */
-    }
-}
-
-
-@media (max-width: 480px) {
-    .services h2,
-    .customer-satisfaction h2,
-    .contact-us h2 {
-        font-size: 24px; /* Even smaller heading size */
-    }
-
-    .hero-heading h2 {
-        font-size: 28px; /* Smaller hero heading */
-    }
-
-    .hero p {
-        font-size: 16px; /* Smaller text for hero */
-    }
-
-    .service-item h3 {
-        font-size: 18px; /* Smaller service titles */
-    }
-
-    .service-item p {
-        font-size: 12px; /* Smaller text for descriptions */
-    }
-
-    .contact-btn {
-        padding: 10px 20px; /* Smaller button padding */
-        font-size: 16px; /* Smaller button text */
     }
 }
 
