@@ -16,7 +16,6 @@ body, html {
 
 /* Navbar Styling */
 header {
-    position: sticky;
     top: 0;
     z-index: 10;
     background-color: #fff;
@@ -229,18 +228,111 @@ footer p {
     font-size: 1rem; /* Font size */
 }
 
-/* Responsive Styles */
+/* General Styling for Small Screens (Mobile) */
 @media (max-width: 768px) {
+    /* Top Bar */
+    .top-bar {
+        font-size: 0.9rem; /* Reduce text size */
+        padding: 10px; /* Add padding to keep it compact */
+    }
+
+    /* Navbar */
+    .container-navbar {
+        flex-direction: column; /* Stack the logo, navbar, and button */
+        align-items: center;
+        height: auto; /* Adjust height automatically based on content */
+        padding: 2px 0; /* Reduce padding to make it more compact */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Add space between logo and navbar */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px; /* Add spacing between links */
+        margin-right: 30px;
+    }
+
+    .appointment-container {
+        margin-top: 10px; /* Add space below navbar links */
+    }
+
+    /* Landing Section */
+    .landing-section {
+        padding: 20px; /* Reduce padding for small screens */
+        text-align: center; /* Center the text */
+    }
+
+    .landing-content h2 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+
+    .landing-content p {
+        font-size: 1rem; /* Adjust paragraph size */
+    }
+
+    /* Therapy Services Section */
+    .therapy-services .container {
+        padding: 20px; /* Reduce padding for a compact look */
+    }
+
+    .therapy-services h2 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+
+    .service-cards {
+        display: flex;
+        flex-direction: column; /* Stack cards vertically */
+        gap: 20px; /* Add space between cards */
+    }
+
+    .service-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center-align text */
+    }
+
+    .service-card img {
+        width: 90%; /* Reduce image width */
+        height: auto; /* Keep image aspect ratio */
+        margin-bottom: 10px; /* Add space below the image */
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem; /* Adjust card title size */
+    }
+
+    /* Contact Us Section */
+    .contact-us {
+        padding: 30px 20px; /* Adjust padding */
+    }
+
     .contact-us h2 {
-        font-size: 2rem; /* Smaller heading size for mobile */
+        font-size: 2rem; /* Adjust heading size */
     }
 
     .contact-us p {
-        font-size: 1rem; /* Smaller paragraph size for mobile */
+        font-size: 1rem; /* Adjust paragraph size */
     }
 
-    footer p {
-        font-size: 0.9rem; /* Smaller footer text for mobile */
+    .contact-btn {
+        padding: 8px 16px; /* Adjust button padding */
+        font-size: 1rem; /* Adjust button text size */
+    }
+
+    /* Footer Section */
+    footer {
+        padding: 15px; /* Adjust padding */
+        font-size: 0.9rem; /* Adjust font size */
+    }
+
+    /* Back-to-Top Button */
+    #backToTopBtn {
+        width: 40px; /* Reduce button size */
+        height: 40px;
+        font-size: 1.5rem; /* Adjust icon size */
     }
 }
 
